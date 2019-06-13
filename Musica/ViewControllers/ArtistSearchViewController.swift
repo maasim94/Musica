@@ -23,8 +23,11 @@ final class ArtistSearchViewController: UIViewController {
         addActivityIndicator()
         
         viewModel.refreshTableData = { [weak self] in
-            self?.tableView.reloadData()
-            self?.spinner.stopAnimating()
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+                self?.spinner.stopAnimating()
+            }
+            
         }
     }
     // MARK: - initialUISetup

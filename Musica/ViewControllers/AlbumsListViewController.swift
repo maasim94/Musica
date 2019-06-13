@@ -25,8 +25,10 @@ final class AlbumsListViewController: UIViewController {
         self.title = viewModel.title
         
         viewModel.refreshTableData = { [weak self] in
-            self?.tableView.reloadData()
-            self?.spinner.stopAnimating()
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+                self?.spinner.stopAnimating()
+            }
         }
     }
     // MARK: - initialUISetup

@@ -35,7 +35,10 @@ final class StoredAlbumsViewController: UIViewController {
         initUI()
         collectionViewInit()
         viewModel.refreshCollectionData = { [weak self] in
-            self?.collectionView.reloadData()
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
+            
         }
         
     }

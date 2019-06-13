@@ -23,8 +23,10 @@ final class AlbumDetailsViewController: UIViewController {
         self.title = viewModel.title
         
         viewModel.getAlbumDetails { [weak self] in
-            self?.tableView.reloadData()
-            self?.spinner.stopAnimating()
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+                self?.spinner.stopAnimating()
+            }
         }
         let barButtonItem = UIBarButtonItem(image: getFavImage(isFav: viewModel.selectedAlbum.isFav), style: .plain, target: self, action: #selector(saveUnsaveBarButtonTapped(barButton:)))
         barButtonItem.accessibilityIdentifier = AccessibilityIdentifiers.albumDetailsHeartIcon
