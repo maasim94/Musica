@@ -11,10 +11,12 @@ import RealmSwift
 final class AlbumDetailsViewModel: NSObject {
     private let dataFetcher: MusicaDataFetcherProtocol
     var selectedAlbum: Album
+    let realm: Realm!
     // MARK: - init
-    init(dataFetcher: MusicaDataFetcherProtocol, album: Album) {
+    init(dataFetcher: MusicaDataFetcherProtocol, album: Album, realm: Realm) {
         self.dataFetcher = dataFetcher
         self.selectedAlbum = album
+        self.realm = realm
     }
     // MARK: - businsess logic
     func numberOfRows(of section: Int) -> Int {
@@ -47,7 +49,6 @@ final class AlbumDetailsViewModel: NSObject {
         }
     }
     func saveUnSaveAlbum(completion: (Bool) ->  Void) {
-        let realm = try! Realm()
         if let databaseItem = realm.object(ofType: Album.self, forPrimaryKey: selectedAlbum.mbid) {
             try! realm.write {
                 databaseItem.isFav = !databaseItem.isFav
@@ -60,6 +61,5 @@ final class AlbumDetailsViewModel: NSObject {
                 completion(true)
             }
         }
-        
     }
 }

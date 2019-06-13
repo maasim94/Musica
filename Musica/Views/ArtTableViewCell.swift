@@ -18,6 +18,7 @@ class ArtTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
+        accessibilityIdentifier = AccessibilityIdentifiers.artTableViewCell
         // Initialization code
     }
 

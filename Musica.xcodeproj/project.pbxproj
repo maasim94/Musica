@@ -11,11 +11,9 @@
 		7332407F9E5AEDBC8B8254B4 /* Pods_MusicaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 494DDC63B877163DF6A29E54 /* Pods_MusicaUITests.framework */; };
 		A907AA2BC371603388A544A6 /* Pods_MusicaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B0D57C4715B49064D6B554 /* Pods_MusicaTests.framework */; };
 		EC2D3CDE22ACD98900B3E2DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2D3CDD22ACD98900B3E2DE /* AppDelegate.swift */; };
-		EC2D3CE022ACD98900B3E2DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2D3CDF22ACD98900B3E2DE /* ViewController.swift */; };
 		EC2D3CE322ACD98900B3E2DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2D3CE122ACD98900B3E2DE /* Main.storyboard */; };
 		EC2D3CE522ACD98A00B3E2DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC2D3CE422ACD98A00B3E2DE /* Assets.xcassets */; };
 		EC2D3CE822ACD98A00B3E2DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2D3CE622ACD98A00B3E2DE /* LaunchScreen.storyboard */; };
-		EC2D3CF322ACD98A00B3E2DE /* MusicaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2D3CF222ACD98A00B3E2DE /* MusicaTests.swift */; };
 		EC2D3CFE22ACD98A00B3E2DE /* MusicaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2D3CFD22ACD98A00B3E2DE /* MusicaUITests.swift */; };
 		EC2D3D0F22ACDD0D00B3E2DE /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2D3D0E22ACDD0D00B3E2DE /* Artist.swift */; };
 		EC2D3D1122ACDD1F00B3E2DE /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2D3D1022ACDD1F00B3E2DE /* Album.swift */; };
@@ -44,6 +42,7 @@
 		EC99BC3E22B0FA81006E1EC6 /* ArtistSearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC99BC3D22B0FA81006E1EC6 /* ArtistSearchViewModelTests.swift */; };
 		EC99BC4022B0FF2A006E1EC6 /* artistJson.json in Resources */ = {isa = PBXBuildFile; fileRef = EC99BC3F22B0FF2A006E1EC6 /* artistJson.json */; };
 		EC99BC4522B10BDB006E1EC6 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC99BC4422B10BDB006E1EC6 /* ModelTests.swift */; };
+		EC99BC4B22B2138D006E1EC6 /* AlbumDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC99BC4A22B2138D006E1EC6 /* AlbumDetailsViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,13 +74,11 @@
 		C2B0D57C4715B49064D6B554 /* Pods_MusicaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2D3CDA22ACD98900B3E2DE /* Musica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2D3CDD22ACD98900B3E2DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EC2D3CDF22ACD98900B3E2DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EC2D3CE222ACD98900B3E2DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC2D3CE422ACD98A00B3E2DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC2D3CE722ACD98A00B3E2DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC2D3CE922ACD98A00B3E2DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC2D3CEE22ACD98A00B3E2DE /* MusicaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC2D3CF222ACD98A00B3E2DE /* MusicaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicaTests.swift; sourceTree = "<group>"; };
 		EC2D3CF422ACD98A00B3E2DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC2D3CF922ACD98A00B3E2DE /* MusicaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2D3CFD22ACD98A00B3E2DE /* MusicaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicaUITests.swift; sourceTree = "<group>"; };
@@ -113,6 +110,7 @@
 		EC99BC3D22B0FA81006E1EC6 /* ArtistSearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchViewModelTests.swift; sourceTree = "<group>"; };
 		EC99BC3F22B0FF2A006E1EC6 /* artistJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artistJson.json; sourceTree = "<group>"; };
 		EC99BC4422B10BDB006E1EC6 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
+		EC99BC4A22B2138D006E1EC6 /* AlbumDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,11 +206,10 @@
 		EC2D3CF122ACD98A00B3E2DE /* MusicaTests */ = {
 			isa = PBXGroup;
 			children = (
-				EC99BC4322B10BBB006E1EC6 /* Model Tests */,
 				EC99BC3F22B0FF2A006E1EC6 /* artistJson.json */,
+				EC99BC4322B10BBB006E1EC6 /* Model Tests */,
 				EC99BC3C22B0FA66006E1EC6 /* ViewModelTests */,
 				EC99BC2B22B0E45F006E1EC6 /* ViewControllersTests */,
-				EC2D3CF222ACD98A00B3E2DE /* MusicaTests.swift */,
 				EC2D3CF422ACD98A00B3E2DE /* Info.plist */,
 			);
 			path = MusicaTests;
@@ -273,7 +270,6 @@
 		EC2D3D1722AD212600B3E2DE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				EC2D3CDF22ACD98900B3E2DE /* ViewController.swift */,
 				EC2D3D1A22AE55AF00B3E2DE /* StoredAlbumsViewController.swift */,
 				EC2D3D1C22AE563A00B3E2DE /* ArtistSearchViewController.swift */,
 				EC2D3D2022AE59F800B3E2DE /* AlbumsListViewController.swift */,
@@ -330,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				EC99BC3D22B0FA81006E1EC6 /* ArtistSearchViewModelTests.swift */,
+				EC99BC4A22B2138D006E1EC6 /* AlbumDetailsViewModelTests.swift */,
 			);
 			path = ViewModelTests;
 			sourceTree = "<group>";
@@ -391,6 +388,7 @@
 				EC2D3CF522ACD98A00B3E2DE /* Sources */,
 				EC2D3CF622ACD98A00B3E2DE /* Frameworks */,
 				EC2D3CF722ACD98A00B3E2DE /* Resources */,
+				42A2B1D68035AA3B2921DBC0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -512,7 +510,6 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
 			);
@@ -524,13 +521,44 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Musica/Pods-Musica-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		42A2B1D68035AA3B2921DBC0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MusicaUITests/Pods-MusicaUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
+				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MusicaUITests/Pods-MusicaUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		53C3245B0FF761192CC2B215 /* [CP] Check Pods Manifest.lock */ = {
@@ -586,7 +614,6 @@
 			files = (
 				EC2D3D0F22ACDD0D00B3E2DE /* Artist.swift in Sources */,
 				EC2D3D3A22AF9B7700B3E2DE /* AlbumDetailsViewModel.swift in Sources */,
-				EC2D3CE022ACD98900B3E2DE /* ViewController.swift in Sources */,
 				EC2D3D1422ACE07C00B3E2DE /* DataFetcher.swift in Sources */,
 				EC2D3D3022AE6B8200B3E2DE /* Messages.swift in Sources */,
 				EC2D3CDE22ACD98900B3E2DE /* AppDelegate.swift in Sources */,
@@ -611,7 +638,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC2D3CF322ACD98A00B3E2DE /* MusicaTests.swift in Sources */,
+				EC99BC4B22B2138D006E1EC6 /* AlbumDetailsViewModelTests.swift in Sources */,
 				EC99BC3322B0E4CF006E1EC6 /* StoredAlbumsViewControllerTests.swift in Sources */,
 				EC99BC3722B0E4E8006E1EC6 /* ArtistSearchViewControllerTests.swift in Sources */,
 				EC99BC4522B10BDB006E1EC6 /* ModelTests.swift in Sources */,
@@ -785,7 +812,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2FQ43C7NDW;
+				DEVELOPMENT_TEAM = HJ6999DV7Y;
 				INFOPLIST_FILE = Musica/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -805,7 +832,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2FQ43C7NDW;
+				DEVELOPMENT_TEAM = HJ6999DV7Y;
 				INFOPLIST_FILE = Musica/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

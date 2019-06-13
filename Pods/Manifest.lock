@@ -7,7 +7,6 @@ PODS:
   - Realm/Headers (3.14.2)
   - RealmSwift (3.14.2):
     - Realm (= 3.14.2)
-  - SVProgressHUD (2.2.5)
   - SwiftMessages (6.0.2):
     - SwiftMessages/App (= 6.0.2)
   - SwiftMessages/App (6.0.2)
@@ -17,7 +16,6 @@ DEPENDENCIES:
   - Alamofire
   - AlamofireImage
   - RealmSwift
-  - SVProgressHUD
   - SwiftMessages
   - TPKeyboardAvoiding
 
@@ -27,7 +25,6 @@ SPEC REPOS:
     - AlamofireImage
     - Realm
     - RealmSwift
-    - SVProgressHUD
     - SwiftMessages
     - TPKeyboardAvoiding
 
@@ -36,10 +33,9 @@ SPEC CHECKSUMS:
   AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
   Realm: 179c6706e3a49dbfe112e572fd3c03d3169bea35
   RealmSwift: 1797f272fb51c555b764fada32e82159a2c65247
-  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftMessages: 8b3cc68dba2f1c91aac1a74c90b10287aac35371
   TPKeyboardAvoiding: cb69d5ddbe90ce0170e4bc2db1e5e41d4a3ad9a4
 
-PODFILE CHECKSUM: df896466ae8b89fd8c77e33cf6802d9fd5cf6dff
+PODFILE CHECKSUM: e59cd30d59105b4b0f4d4df4acf70cff4e966db6
 
 COCOAPODS: 1.6.1

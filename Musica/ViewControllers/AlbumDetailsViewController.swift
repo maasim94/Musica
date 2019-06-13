@@ -16,6 +16,8 @@ final class AlbumDetailsViewController: UIViewController {
     // MARK: - lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.accessibilityIdentifier = AccessibilityIdentifiers.albumDetailsView
+        tableView.accessibilityIdentifier = AccessibilityIdentifiers.albumDetailsTableView
         tableViewInit()
         addActivityIndicator()
         self.title = viewModel.title
@@ -25,6 +27,7 @@ final class AlbumDetailsViewController: UIViewController {
             self?.spinner.stopAnimating()
         }
         let barButtonItem = UIBarButtonItem(image: getFavImage(isFav: viewModel.selectedAlbum.isFav), style: .plain, target: self, action: #selector(saveUnsaveBarButtonTapped(barButton:)))
+        barButtonItem.accessibilityIdentifier = AccessibilityIdentifiers.albumDetailsHeartIcon
         self.navigationItem.rightBarButtonItem = barButtonItem
     }
     // MARK: - initialUISetup

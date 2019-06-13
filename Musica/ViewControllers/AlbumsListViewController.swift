@@ -8,7 +8,7 @@
 
 import UIKit
 import TPKeyboardAvoiding
-
+import RealmSwift
 final class AlbumsListViewController: UIViewController {
     // MARK: - properties
     @IBOutlet weak var tableView: TPKeyboardAvoidingTableView!
@@ -17,6 +17,8 @@ final class AlbumsListViewController: UIViewController {
     // MARK: - lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.accessibilityIdentifier = AccessibilityIdentifiers.albumListView
+        tableView.accessibilityIdentifier = AccessibilityIdentifiers.albumListTableView
         tableViewInit()
         addActivityIndicator()
         viewModel.getAlbumsForArtist()
@@ -48,7 +50,7 @@ final class AlbumsListViewController: UIViewController {
             guard let destination = segue.destination as? AlbumDetailsViewController, let sender = sender as? Album else {
                 return
             }
-            let albumDetailsViewModel = AlbumDetailsViewModel(dataFetcher: DataFetcher(), album: sender)
+            let albumDetailsViewModel = AlbumDetailsViewModel(dataFetcher: DataFetcher(), album: sender, realm: try! Realm())
             destination.viewModel = albumDetailsViewModel
         }
     }

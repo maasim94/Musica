@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import RealmSwift
 final class StoredAlbumsViewController: UIViewController {
     // MARK: - properties
     @IBOutlet weak var imageView: UIImageView!
@@ -22,7 +22,16 @@ final class StoredAlbumsViewController: UIViewController {
     // MARK: - lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = StoredAlbumsViewModel()
+        view.accessibilityIdentifier = AccessibilityIdentifiers.storedAlbumView
+        collectionView.accessibilityIdentifier = AccessibilityIdentifiers.collectionView
+        viewPointing.accessibilityIdentifier = AccessibilityIdentifiers.pointerView
+        do {
+            let realm = try Realm()
+            viewModel = StoredAlbumsViewModel(realm: realm)
+        } catch  {
+            print("error \(error.localizedDescription)")
+        }
+        
         initUI()
         collectionViewInit()
         viewModel.refreshCollectionData = { [weak self] in
@@ -72,7 +81,7 @@ final class StoredAlbumsViewController: UIViewController {
             guard let destination = segue.destination as? AlbumDetailsViewController, let sender = sender as? Album else {
                 return
             }
-            let albumDetailsViewModel = AlbumDetailsViewModel(dataFetcher: DataFetcher(), album: sender)
+            let albumDetailsViewModel = AlbumDetailsViewModel(dataFetcher: DataFetcher(), album: sender, realm: try! Realm())
             destination.viewModel = albumDetailsViewModel
         }
     }

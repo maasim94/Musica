@@ -15,19 +15,12 @@ final class StoredAlbumsViewModel {
             refreshCollectionData?()
         }
     }
-    private var realm: Realm?
     var realmChangesToken:NotificationToken?
     // MARK: - init
-    init() {
-        do {
-            try realm = Realm()
-            savedAlbums = realm!.objects(Album.self).filter("isFav == true")
-            
-            realmChangesToken = realm!.observe { [weak self] (notification, realm) in
-                self?.savedAlbums = realm.objects(Album.self).filter("isFav == true")
-            }
-        } catch  {
-            print("error \(error.localizedDescription)")
+    init(realm: Realm) {
+        savedAlbums = realm.objects(Album.self).filter("isFav == true")
+        realmChangesToken = realm.observe { [weak self] (notification, realm) in
+            self?.savedAlbums = realm.objects(Album.self).filter("isFav == true")
         }
     }
     // output

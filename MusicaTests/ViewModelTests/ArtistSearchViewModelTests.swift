@@ -30,13 +30,13 @@ class ArtistSearchViewModelTests: XCTestCase {
     }
     func testDataModelForIndexPath() {
         let indexPath = IndexPath(row: 0, section: 0)
-        let giphyImageSet = mockDataFetcher.artists[indexPath.row]
-        XCTAssertEqual(giphyImageSet, sut.getArtist(for: indexPath.row))
+        let artistData = mockDataFetcher.artists[indexPath.row]
+        XCTAssertEqual(artistData, sut.getArtist(for: indexPath.row))
     }
     func testDataModelForSelectionIndexPath() {
         let indexPath = IndexPath(row: 0, section: 0)
-        let giphyItem = mockDataFetcher.artists[indexPath.row]
-        XCTAssertEqual(giphyItem, sut.getArtist(for: indexPath.row))
+        let artistItem = mockDataFetcher.artists[indexPath.row]
+        XCTAssertEqual(artistItem, sut.getArtist(for: indexPath.row))
     }
 
 }

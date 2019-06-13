@@ -213,6 +213,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sZl-VO-xNq">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="navigationBar"/>
+                        </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -229,6 +232,6 @@
         <image name="pointing-up" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EZh-NH-bkY"/>
+        <segue reference="7Qm-XH-Y3B"/>
     </inferredMetricsTieBreakers>
 </document>

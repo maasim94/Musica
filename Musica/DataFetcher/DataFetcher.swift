@@ -32,7 +32,7 @@ protocol MusicaDataFetcherProtocol {
 }
 
 class DataFetcher: MusicaDataFetcherProtocol {
-    private struct Constant {
+    private struct DataFetcherConstant {
         static let apiKey = "9e396f5ff83abc29b31401366c8fd479"
         static let musicaURL = "https://ws.audioscrobbler.com/2.0/"
         static let unknownResponse = NSLocalizedString("The server returned an unknown response.", comment: "The error message shown when the server produces something unintelligible.")
@@ -40,15 +40,15 @@ class DataFetcher: MusicaDataFetcherProtocol {
         static let format = "json"
     }
     func fetchNetworkData<T>(method: EndPoint, queryParam: [String : Any], completion: @escaping (AppError?, T?) -> Void) where T : Decodable {
-        guard let url = URL(string: Constant.musicaURL) else {
+        guard let url = URL(string: DataFetcherConstant.musicaURL) else {
             // incorporate error
-            completion(AppError.gernalError(message: Constant.urlNotGood), nil)
+            completion(AppError.gernalError(message: DataFetcherConstant.urlNotGood), nil)
             return
         }
         var params = [String : Any]()
         params["method"] = method.rawValue
-        params["api_key"] = Constant.apiKey
-        params["format"] = Constant.format
+        params["api_key"] = DataFetcherConstant.apiKey
+        params["format"] = DataFetcherConstant.format
         params.merge(queryParam) { (current, _) in current }
         let request = Alamofire.request(url, method: .get, parameters: params)
         request.responseData { (response:DataResponse<Data>) in
@@ -57,7 +57,7 @@ class DataFetcher: MusicaDataFetcherProtocol {
                 return
             }
             guard let jsonData = response.data else {
-                completion(AppError.gernalError(message: Constant.unknownResponse), nil)
+                completion(AppError.gernalError(message: DataFetcherConstant.unknownResponse), nil)
                 return
             }
             self.parseServerData(data: jsonData, completion: completion)

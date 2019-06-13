@@ -16,6 +16,8 @@ final class ArtistSearchViewController: UIViewController {
     // MARK: - lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.accessibilityIdentifier = AccessibilityIdentifiers.searchArtistView
+        tableView.accessibilityIdentifier = AccessibilityIdentifiers.artistSearchTableView
         addNavigationSearchBar()
         tableViewInit()
         addActivityIndicator()
