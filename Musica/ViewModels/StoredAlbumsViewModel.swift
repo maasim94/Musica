@@ -17,11 +17,18 @@ final class StoredAlbumsViewModel {
     }
     var realmChangesToken:NotificationToken?
     // MARK: - init
+    
+    /// init ViewModel
+    ///
+    /// - Parameter realm: Realm Object
     init(realm: Realm) {
         savedAlbums = realm.objects(Album.self).filter("isFav == true")
         realmChangesToken = realm.observe { [weak self] (notification, realm) in
             self?.savedAlbums = realm.objects(Album.self).filter("isFav == true")
         }
+    }
+    deinit {
+        realmChangesToken = nil
     }
     // output
     var refreshCollectionData: (() -> Void)?
@@ -30,6 +37,11 @@ final class StoredAlbumsViewModel {
         return savedAlbums?.count ?? 0
     }
     let numberOfSections:Int = 1
+    
+    /// get Album to show on cell
+    ///
+    /// - Parameter index: item value of cell
+    /// - Returns: album value 
     func getAlbum(for index:Int) -> Album? {
         return savedAlbums?[index]
     }

@@ -52,7 +52,7 @@ final class AlbumsListViewController: UIViewController {
             guard let destination = segue.destination as? AlbumDetailsViewController, let sender = sender as? Album else {
                 return
             }
-            let albumDetailsViewModel = AlbumDetailsViewModel(dataFetcher: DataFetcher(), album: sender, realm: try! Realm())
+            let albumDetailsViewModel = AlbumDetailsViewModel(dataFetcher: DataFetcher(), album: sender, realm: viewModel.realm)
             destination.viewModel = albumDetailsViewModel
         }
     }
@@ -70,11 +70,11 @@ extension AlbumsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ArtTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         let albumData  = viewModel.getAlbum(for: indexPath.row)
-        cell.configureCellFor(album: albumData.album, isFav: albumData.isFav)
+        cell.configureCellFor(album: albumData)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: Segues.albumsListToDetails, sender: viewModel.getAlbum(for: indexPath.row).album)
+        performSegue(withIdentifier: Segues.albumsListToDetails, sender: viewModel.getAlbum(for: indexPath.row))
     }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView.contentOffset.y + scrollView.bounds.height + 100 >= scrollView.contentSize.height {

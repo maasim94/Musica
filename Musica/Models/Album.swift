@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 
+
 final class AlbumRoot: Decodable {
     let album: [Album]
     let currentPage: Int
@@ -81,6 +82,11 @@ final class Album: Object, Decodable {
             self.tracks.append(objectsIn: trackArray)
         }
     }
+    
+    /// get image of given size, if no image of given size available, first image of array will return
+    ///
+    /// - Parameter size: size of image from ImageSize enum
+    /// - Returns: optional ArtImage
     func getImageOf(size: ImageSize) -> ArtImage? {
         // get asked image from array
         if let imageVal = image.first(where: {$0.sizeString == size.rawValue}) {

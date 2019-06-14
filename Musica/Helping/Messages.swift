@@ -11,6 +11,12 @@ import SwiftMessages
 
 class Messages: SwiftMessages {
     
+    /// show top message to user about results of their actions
+    ///
+    /// - Parameters:
+    ///   - message: message to show
+    ///   - theme: theme of pop up
+    ///   - duration: optional duration in seconds, if not given it will hide automatic
     static func showMessage(message: String, theme: Theme, duration: Duration = .automatic) {
         
         var config: SwiftMessages.Config = SwiftMessages.defaultConfig

@@ -29,7 +29,7 @@ class ArtTableViewCell: UITableViewCell {
     }
     func configureCellFor(artist: Artist) {
         lblArtName.text = artist.name
-        let placeholderImage = UIImage(named: "musician")
+        let placeholderImage =  #imageLiteral(resourceName: "musician.png")
         if let imageData = artist.getImageOf(size: .medium), let url = URL(string: imageData.url) {
             imgArt.af_setImage(withURL: url, placeholderImage: placeholderImage)
         } else {
@@ -37,20 +37,20 @@ class ArtTableViewCell: UITableViewCell {
         }
         heartIcon.isHidden = true
     }
-    func configureCellFor(album: Album, isFav: Bool) {
+    func configureCellFor(album: Album) {
         lblArtName.text = album.name
-        let placeholderImage = UIImage(named: "music-player")
+        let placeholderImage = #imageLiteral(resourceName: "music-player.png")
         if let imageData = album.getImageOf(size: .medium), let url = URL(string: imageData.url) {
             imgArt.af_setImage(withURL: url, placeholderImage: placeholderImage)
         } else {
             imgArt.image = placeholderImage
         }
-        heartIcon.isHidden = !isFav
+        heartIcon.isHidden = !album.isFav
     }
     func configureCellFor(track: Track) {
         
         lblArtName.text = track.name
-        imgArt.image = UIImage(named: "music-player")
+        imgArt.image = #imageLiteral(resourceName: "music-player.png") 
         heartIcon.isHidden = true
         arrowIcon.isHidden = true
     }

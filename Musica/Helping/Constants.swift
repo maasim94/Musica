@@ -26,5 +26,4 @@ struct AccessibilityIdentifiers {
     static let albumDetailsView = "albumDetailsView"
     static let albumDetailsTableView = "albumDetailsTableView"
     static let albumDetailsHeartIcon = "albumDetailsHeartIcon"
-    
 }

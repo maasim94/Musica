@@ -9,6 +9,14 @@
 import UIKit
 import RealmSwift
 
+
+/// Image sizes recieved from network
+///
+/// - small:
+/// - medium:
+/// - large:
+/// - extralarge:
+/// - mega:
 enum ImageSize: String {
     case small
     case medium
@@ -80,6 +88,11 @@ final class Artist: Decodable, Equatable {
         self.mbid = try container.decode(String.self, forKey: .mbid)
         self.image = try container.decode([ArtImage].self, forKey: .image)
     }
+    
+    /// get image of given size, if no image of given size available, first image of array will return
+    ///
+    /// - Parameter size: size of image from ImageSize enum
+    /// - Returns: optional ArtImage
     func getImageOf(size: ImageSize) -> ArtImage? {
         // get asked image from array
         if let imageVal = image.first(where: {$0.sizeString == size.rawValue}) {
@@ -92,7 +105,6 @@ final class Artist: Decodable, Equatable {
 final class ArtImage: Object, Decodable {
     @objc dynamic var url: String = ""
     @objc dynamic var sizeString: String = ""
-    
     
     private enum CodingKeys: String, CodingKey {
         case url = "#text"

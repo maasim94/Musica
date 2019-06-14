@@ -47,7 +47,7 @@ class ImageTableViewCell: UITableViewCell {
         }
     }
     func configureCell(album: Album) {
-        let placeholderImage = UIImage(named: "coverImage")
+        let placeholderImage =  #imageLiteral(resourceName: "coverImage") 
         if let imageData = album.getImageOf(size: .large), let url = URL(string: imageData.url) {
             imgArt.af_setImage(withURL: url, placeholderImage: placeholderImage)
         } else {

@@ -19,13 +19,26 @@ final class AlbumsListViewModel {
             refreshTableData?()
         }
     }
-    private let realm = try! Realm()
+    let realm = try! Realm()
+    var realmChangesToken:NotificationToken?
     // output
     var refreshTableData: (() -> Void)?
     // MARK: - init
+    
+    /// init viewmodel
+    ///
+    /// - Parameters:
+    ///   - dataFetcher: network data fetcher
+    ///   - artist: artist for which albums to get
     init(dataFetcher: MusicaDataFetcherProtocol, artist: Artist) {
         self.dataFetcher = dataFetcher
         self.selectedArtist = artist
+        realmChangesToken = realm.observe { [weak self] (notification, realm) in
+            self?.refreshTableData?()
+        }
+    }
+    deinit {
+        realmChangesToken = nil
     }
     // MARK: - businsess logic
     var numberOfRows: Int {
@@ -35,27 +48,39 @@ final class AlbumsListViewModel {
     var title:String {
         return selectedArtist.name
     }
-    func getAlbum(for index:Int) -> (album: Album, isFav:Bool) {
+    
+    /// get Album info for row, will check for fav and send return album
+    ///
+    /// - Parameter index: row number
+    /// - Returns: album for sent row
+    func getAlbum(for index:Int) -> Album {
         let album = currentAlbums[index]
         var isFav = false
         if let databaseObj = realm.object(ofType: Album.self, forPrimaryKey: album.mbid)  {
             isFav = databaseObj.isFav
         }
         album.isFav = isFav
-        return (album, isFav)
+        return album
     }
     // MARK: - pagination
     func askForNextPage() {
         guard let data = albumData, currentNetwork == .finished else { return  }
         if  data.currentPage < data.totalPages {
-            performSearchRequest(mbid: selectedArtist.mbid, page: data.currentPage + 1, appendResults: true)
+            performSearchRequest(mbid: selectedArtist.mbid, page: data.currentPage + 1)
         }
     }
     // MARK: - api call
+    
     func getAlbumsForArtist() {
         performSearchRequest(mbid: selectedArtist.mbid)
     }
-    private func performSearchRequest(mbid: String, page: Int = 1, appendResults: Bool = false) {
+    
+    /// perfrom network call
+    ///
+    /// - Parameters:
+    ///   - mbid: id of artist
+    ///   - page: page of call , default to 1
+    private func performSearchRequest(mbid: String, page: Int = 1) {
         currentNetwork = .progress
         let params: [String: Any] = ["mbid": mbid, "page": page]
         dataFetcher.fetchNetworkData(method: .album, queryParam: params) { [weak self] (error: AppError?, albums: AlbumRoot?) in
@@ -67,12 +92,7 @@ final class AlbumsListViewModel {
                 return
             }
             guard let albumArray = albums?.album else { return }
-            if appendResults {
-                strongSelf.currentAlbums.append(contentsOf: albumArray)
-            } else {
-                strongSelf.currentAlbums =  albumArray
-            }
-            
+            strongSelf.currentAlbums.append(contentsOf: albumArray)
         }
     }
     

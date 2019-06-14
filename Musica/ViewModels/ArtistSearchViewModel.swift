@@ -27,6 +27,10 @@ final class ArtistSearchViewModel {
     // output
     var refreshTableData: (() -> Void)?
     // MARK: - init
+    
+    /// viewmode init with netwrok data fetcher
+    ///
+    /// - Parameter dataFetcher: netwrok data fetcher
     init(dataFetcher: MusicaDataFetcherProtocol) {
         self.dataFetcher = dataFetcher
     }
@@ -39,6 +43,7 @@ final class ArtistSearchViewModel {
         return currentArtists[index]
     }
     // MARK: - pagination
+    
     func askForNextPage() {
         guard let data = artistData, currentNetwork == .finished else { return  }
         if data.startPage * data.itemsPerPage < data.totalResults {
@@ -46,11 +51,21 @@ final class ArtistSearchViewModel {
         }
     }
     // MARK: - api call
+    
+    /// network call to get artists
+    ///
+    /// - Parameter name: query string of user
     func getArtistForQuery(name: String) {
         artistData = nil
         currentArtists.removeAll()
         performSearchRequest(name: name)
     }
+    
+    /// perform network request
+    ///
+    /// - Parameters:
+    ///   - name: name of artist
+    ///   - appendResults: if pagination request for will append result
     private func performSearchRequest(name: String, appendResults: Bool = false) {
         currentNetwork = .progress
         var page = 1

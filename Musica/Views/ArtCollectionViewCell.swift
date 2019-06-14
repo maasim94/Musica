@@ -27,7 +27,7 @@ class ArtCollectionViewCell: UICollectionViewCell {
     }
     func configureCellFor(album: Album) {
         lblAlbumName.text = album.name
-        let placeholderImage = UIImage(named: "music-player")
+        let placeholderImage = #imageLiteral(resourceName: "music-player.png") 
         if let imageData = album.getImageOf(size: .extralarge), let url = URL(string: imageData.url) {
             imgArt.af_setImage(withURL: url, placeholderImage: placeholderImage)
         } else {

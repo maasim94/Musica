@@ -48,9 +48,9 @@ final class AlbumDetailsViewController: UIViewController {
     }
     // MARK: - bar button action
     private func getFavImage(isFav:Bool) -> UIImage? {
-        var barImage = UIImage(named: "like")
+        var barImage = #imageLiteral(resourceName: "like")
         if isFav {
-            barImage = UIImage(named: "liked")
+            barImage = #imageLiteral(resourceName: "liked")
         }
         return barImage
     }

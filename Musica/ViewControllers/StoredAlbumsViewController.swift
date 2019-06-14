@@ -32,10 +32,11 @@ final class StoredAlbumsViewController: UIViewController {
             print("error \(error.localizedDescription)")
         }
         
-        initUI()
+        determineUserInterface()
         collectionViewInit()
         viewModel.refreshCollectionData = { [weak self] in
             DispatchQueue.main.async {
+                self?.determineUserInterface()
                 self?.collectionView.reloadData()
             }
             
@@ -44,22 +45,25 @@ final class StoredAlbumsViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         self.title = "Saved Albums"
+        if !viewPointing.isHidden {
+            animateImage()
+        }
     }
     override func viewWillDisappear(_ animated: Bool) {
         self.title = "" // don't want next controller to have long string but only back
     }
     
     // MARK: - initialUISetup
+    
     private func collectionViewInit() {
         collectionView.registerNib(ArtCollectionViewCell.self)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-    private func initUI() {
+    private func determineUserInterface() {
         if viewModel.isDataEmpty {
             viewPointing.isHidden = false
             collectionView.isHidden = true
-            animateImage()
         } else {
             collectionView.isHidden = false
             viewPointing.isHidden = true
@@ -71,7 +75,6 @@ final class StoredAlbumsViewController: UIViewController {
             var frame = self.imageView.frame
             frame.origin = CGPoint(x: frame.origin.x, y: frame.origin.y + 20)
             self.imageView.frame = frame
-            
         }, completion: nil)
     }
     

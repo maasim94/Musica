@@ -195,7 +195,7 @@
 				EC2D3D0D22ACDCD300B3E2DE /* Models */,
 				EC2D3D0C22ACDCC800B3E2DE /* App */,
 				EC2D3D1722AD212600B3E2DE /* ViewControllers */,
-				EC2D3D2922AE65D100B3E2DE /* ViewModel */,
+				EC2D3D2922AE65D100B3E2DE /* ViewModels */,
 				EC2D3D1522AD1DDC00B3E2DE /* Storyboard */,
 				EC2D3D1622AD1E3200B3E2DE /* Resources */,
 				EC2D3CE922ACD98A00B3E2DE /* Info.plist */,
@@ -291,7 +291,7 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		EC2D3D2922AE65D100B3E2DE /* ViewModel */ = {
+		EC2D3D2922AE65D100B3E2DE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				EC2D3D4122B0C5FD00B3E2DE /* StoredAlbumsViewModel.swift */,
@@ -299,7 +299,7 @@
 				EC2D3D3122AF794900B3E2DE /* AlbumsListViewModel.swift */,
 				EC2D3D3922AF9B7700B3E2DE /* AlbumDetailsViewModel.swift */,
 			);
-			path = ViewModel;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		EC2D3D2C22AE682700B3E2DE /* Helping */ = {

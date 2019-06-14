@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class Track: Object, Decodable {
+final class Track: Object, Decodable {
     @objc dynamic var name: String
     @objc dynamic var duration: String
 }

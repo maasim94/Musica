@@ -13,6 +13,13 @@ final class AlbumDetailsViewModel: NSObject {
     var selectedAlbum: Album
     let realm: Realm!
     // MARK: - init
+    
+    /// init vieModel
+    ///
+    /// - Parameters:
+    ///   - dataFetcher: netwrok data fetcher
+    ///   - album: album for which details to get
+    ///   - realm: realm for offline data
     init(dataFetcher: MusicaDataFetcherProtocol, album: Album, realm: Realm) {
         self.dataFetcher = dataFetcher
         self.selectedAlbum = album
@@ -32,6 +39,10 @@ final class AlbumDetailsViewModel: NSObject {
     var title:String {
         return selectedAlbum.name
     }
+    
+    /// get album details
+    ///
+    /// - Parameter completion: completion block
     func getAlbumDetails(completion:@escaping () -> Void) {
         let params: [String: Any] = ["mbid": selectedAlbum.mbid]
         dataFetcher.fetchNetworkData(method: .albumDetails, queryParam: params) { [weak self] (error: AppError?, albums: AlbumDetailsRoot?) in
