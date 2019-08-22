@@ -59,6 +59,7 @@ final class AlbumsListViewModel {
         if let databaseObj = realm.object(ofType: Album.self, forPrimaryKey: album.mbid)  {
             isFav = databaseObj.isFav
         }
+
         album.isFav = isFav
         return album
     }
@@ -92,7 +93,8 @@ final class AlbumsListViewModel {
                 return
             }
             guard let albumArray = albums?.album else { return }
-            strongSelf.currentAlbums.append(contentsOf: albumArray)
+            let updatedArray = albumArray.filter({$0.mbid.count != 0})
+            strongSelf.currentAlbums.append(contentsOf: updatedArray)
         }
     }
     

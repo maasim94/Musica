@@ -18,7 +18,8 @@ final class ArtistSearchViewModel {
     // MARK: - properties
     private let dataFetcher: MusicaDataFetcherProtocol
     private var artistData: ArtistRoot? // keep this term to have paginate
-    private var currentNetwork: NetworkState = .inital
+    var currentNetwork: NetworkState = .inital
+    var searchTask: DispatchWorkItem?
     private var currentArtists: [Artist] = [] {
         didSet {
             refreshTableData?()
@@ -56,9 +57,16 @@ final class ArtistSearchViewModel {
     ///
     /// - Parameter name: query string of user
     func getArtistForQuery(name: String) {
-        artistData = nil
-        currentArtists.removeAll()
-        performSearchRequest(name: name)
+        searchTask?.cancel()
+        let task = DispatchWorkItem { [weak self] in
+            guard let `self` = self else { return }
+            self.artistData = nil
+            self.currentArtists.removeAll()
+            self.performSearchRequest(name: name)
+        }
+        searchTask = task
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.75, execute: task)
+        
     }
     
     /// perform network request

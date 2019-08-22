@@ -23,11 +23,15 @@ final class ArtistSearchViewController: UIViewController {
         addActivityIndicator()
         
         viewModel.refreshTableData = { [weak self] in
+            guard let strongSelf = self else { return  }
             DispatchQueue.main.async {
-                self?.tableView.reloadData()
-                self?.spinner.stopAnimating()
+                strongSelf.tableView.reloadData()
+                if strongSelf.viewModel.currentNetwork == .progress {
+                    strongSelf.spinner.startAnimating()
+                } else {
+                    strongSelf.spinner.stopAnimating()
+                }
             }
-            
         }
     }
     // MARK: - initialUISetup
@@ -40,6 +44,7 @@ final class ArtistSearchViewController: UIViewController {
     }
     private func addNavigationSearchBar() {
         let searchBar = UISearchBar()
+        searchBar.returnKeyType = .done
         searchBar.showsCancelButton = true
         self.navigationItem.titleView = searchBar
         searchBar.delegate = self
@@ -48,7 +53,6 @@ final class ArtistSearchViewController: UIViewController {
     private func addActivityIndicator() {
         spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
         tableView.tableFooterView = spinner
-        tableView.tableFooterView?.isHidden = true
     }
 
     
@@ -93,12 +97,15 @@ extension ArtistSearchViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        viewModel.getArtistForQuery(name: searchBar.text!)
-        spinner.startAnimating()
+//        if let text = searchBar.text, text.count != 0 {
+//            viewModel.getArtistForQuery(name: text)
+//        }
         searchBar.resignFirstResponder()
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+        if searchText.count > 2 {
+            viewModel.getArtistForQuery(name: searchText)
+        }
     }
     
 }
