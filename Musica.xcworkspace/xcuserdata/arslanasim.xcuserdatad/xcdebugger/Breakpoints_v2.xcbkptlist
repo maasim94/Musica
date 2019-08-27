@@ -16,16 +16,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Musica/ViewModels/AlbumDetailsViewModel.swift"
-            timestampString = "588499580.118459"
+            filePath = "Musica/DataFetcher/DataFetcher.swift"
+            timestampString = "588588170.342418"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "getAlbumDetails(completion:)"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "parseServerData(data:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

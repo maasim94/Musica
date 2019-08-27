@@ -75,6 +75,7 @@ final class Artist: Decodable, Equatable {
     
     let name: String
     let mbid: String
+    let listeners: String
     private let image: [ArtImage]
     
     // we don't need this, since name of key and server data is same

@@ -55,6 +55,7 @@ final class Album: Object, Decodable {
     @objc dynamic var name: String = ""
     @objc dynamic var mbid: String = ""
     @objc dynamic var isFav: Bool = false
+    @objc dynamic var playcount: IntegerOrString?
     dynamic let image: List<ArtImage>  = List<ArtImage>()
     dynamic let tracks: List<Track>  = List<Track>()
     private enum CodingKeys: String, CodingKey {
@@ -74,6 +75,7 @@ final class Album: Object, Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.name = try container.decodeIfPresent(String.self, forKey: .name) ?? ""
         self.mbid = try container.decodeIfPresent(String.self, forKey: .mbid) ?? ""
+        self.playcount = try container.decode(IntegerOrString.self, forKey: .playcount)
         if let artImage = try container.decodeIfPresent(Array<ArtImage>.self, forKey: .image) {
             self.image.append(objectsIn: artImage)
         }
@@ -94,5 +96,16 @@ final class Album: Object, Decodable {
         }
         // if asked image can not be found return first image
         return image.first
+    }
+}
+final class IntegerOrString: Object, Decodable {
+    @objc dynamic var playcount: String = ""
+    required convenience init(from decoder:Decoder) throws {
+        self.init()
+        if let int = try? Int(from: decoder) {
+            playcount = "\(int)"
+            return
+        }
+        playcount = try String(from: decoder)
     }
 }

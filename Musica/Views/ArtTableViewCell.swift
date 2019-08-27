@@ -15,6 +15,10 @@ class ArtTableViewCell: UITableViewCell {
     @IBOutlet weak var lblArtName: UILabel!
     @IBOutlet weak var arrowIcon: UIImageView!
     @IBOutlet weak var heartIcon: UIImageView!
+    @IBOutlet weak var stackListening: UIStackView!
+    @IBOutlet weak var stackParent: UIStackView!
+    @IBOutlet weak var lblListening: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
@@ -35,6 +39,7 @@ class ArtTableViewCell: UITableViewCell {
         } else {
             imgArt.image = placeholderImage
         }
+        lblListening.text = artist.listeners
         heartIcon.isHidden = true
     }
     func configureCellFor(album: Album) {
@@ -46,6 +51,7 @@ class ArtTableViewCell: UITableViewCell {
             imgArt.image = placeholderImage
         }
         heartIcon.isHidden = !album.isFav
+        lblListening.text = album.playcount?.playcount
     }
     func configureCellFor(track: Track) {
         
@@ -53,6 +59,8 @@ class ArtTableViewCell: UITableViewCell {
         imgArt.image = #imageLiteral(resourceName: "music-player.png") 
         heartIcon.isHidden = true
         arrowIcon.isHidden = true
+        stackListening.isHidden = true
+        stackParent.removeArrangedSubview(stackListening)
     }
     
 }
