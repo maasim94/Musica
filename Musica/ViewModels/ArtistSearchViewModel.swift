@@ -56,13 +56,20 @@ final class ArtistSearchViewModel {
     /// network call to get artists
     ///
     /// - Parameter name: query string of user
-    func getArtistForQuery(name: String) {
-        searchTask?.cancel()
-        let task = DispatchWorkItem { [weak self] in
-            guard let `self` = self else { return }
+    func getArtistForQuery(name: String, continuesProcess:Bool = true) {
+        func search() {
             self.artistData = nil
             self.currentArtists.removeAll()
             self.performSearchRequest(name: name)
+        }
+        if !continuesProcess {
+            search()
+            return
+        }
+        searchTask?.cancel()
+        let task = DispatchWorkItem { [weak self] in
+            guard let `self` = self else { return }
+            search()
         }
         searchTask = task
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.75, execute: task)

@@ -17,7 +17,7 @@ class ArtistSearchViewModelTests: XCTestCase {
     override func setUp() {
         mockDataFetcher = MockMusicaDataFetcher()
         sut = ArtistSearchViewModel(dataFetcher: mockDataFetcher)
-        sut.getArtistForQuery(name: "")
+        sut.getArtistForQuery(name: "", continuesProcess: false)
     }
 
     override func tearDown() {

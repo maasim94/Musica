@@ -77,17 +77,18 @@ final class Artist: Decodable, Equatable {
     let mbid: String
     private let image: [ArtImage]
     
-    private enum CodingKeys: String, CodingKey {
-        case name
-        case mbid
-        case image
-    }
-    required init(from decoder:Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.name = try container.decode(String.self, forKey: .name)
-        self.mbid = try container.decode(String.self, forKey: .mbid)
-        self.image = try container.decode([ArtImage].self, forKey: .image)
-    }
+    // we don't need this, since name of key and server data is same
+//    private enum CodingKeys: String, CodingKey {
+//        case name
+//        case mbid
+//        case image
+//    }
+//    required init(from decoder:Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        self.name = try container.decode(String.self, forKey: .name)
+//        self.mbid = try container.decode(String.self, forKey: .mbid)
+//        self.image = try container.decode([ArtImage].self, forKey: .image)
+//    }
     
     /// get image of given size, if no image of given size available, first image of array will return
     ///

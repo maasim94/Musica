@@ -51,7 +51,7 @@ class MusicaUITests: XCTestCase {
         keyboardKeys["h"].tap()
         keyboardKeys["e"].tap()
         keyboardKeys["r"].tap()
-        keyboard.buttons["Search"].tap()
+//        keyboard.buttons["Search"].tap()
         
         // wait for search to be completed
         let artistCell = artistTable.cells["artTableViewCell"]
