@@ -13,6 +13,7 @@ class ModelTests: XCTestCase {
     let testURLString = "https://lastfm-img2.akamaized.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png"
     
     override func setUp() {
+        continueAfterFailure = false
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
@@ -30,9 +31,11 @@ class ModelTests: XCTestCase {
     func testArtistAttributes() {
         let json: [String: Any] = ["name":"Cher",
                                    "mbid":"bfcc6d75",
+                                   "listeners":"2498755",
                                    "image": [imageJson]]
         let jsonData = try! JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
         let artistData = try? JSONDecoder().decode(Artist.self, from: jsonData)
+        
         
         XCTAssertNotNil(artistData)
         XCTAssertEqual(artistData!.name, "Cher")
@@ -43,6 +46,7 @@ class ModelTests: XCTestCase {
     func testAlbumAttributes() {
         let json: [String: Any] = ["name":"Cher",
                                    "mbid":"bfcc6d75",
+                                   "playcount":"2498755",
                                    "image": [imageJson],
                                    "tracks":["track":[trackJson]
                                     ]]

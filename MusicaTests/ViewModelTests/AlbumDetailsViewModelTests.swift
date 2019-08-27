@@ -72,6 +72,7 @@ class MockAlbumDetailsFetcher: MusicaDataFetcherProtocol {
     func fetchNetworkData<T>(method: EndPoint, queryParam: [String : Any], completion: @escaping (AppError?, T?) -> Void) where T : Decodable {
         let json: [String: Any] = ["name":"Cher",
                                    "mbid":"bfcc6d75",
+                                   "playcount":"2498755",
                                    "image": [["#text":"https://lastfm-img2.akamaized.net/i/u/34s/2a96cbd8b46e442fc41c2b86b821562f.png",
                                               "size":"small"]],
                                    "tracks":["track":[["name":"Believe",
