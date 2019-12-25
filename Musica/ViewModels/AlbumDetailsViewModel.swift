@@ -68,7 +68,7 @@ final class AlbumDetailsViewModel: NSObject {
         } else {
             try! realm.write {
                 self.selectedAlbum.isFav = true
-                realm.add(self.selectedAlbum, update: true)
+                realm.add(self.selectedAlbum, update: .all)
                 completion(true)
             }
         }

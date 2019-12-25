@@ -44,6 +44,7 @@ final class StoredAlbumsViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.title = "Saved Albums"
         if !viewPointing.isHidden {
             animateImage()
